@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>U Step - DJ's en directo (Stream)</title>
+    <meta name="description" content="U Step DJ's en Directo Streming">
+    <meta name="keywords" content="U Step, DJ, Directo, Streming">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Normalize css reset -->
+    <link rel="stylesheet" href="lib/normalize.css" />
+    <!-- Polyfill compatibility -->
+    <script src="lib/modernizr-custom.js"></script>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="icon" type="image/png" href="img/FavIcon.png" />
+    <!-- CSS compiled with STYLUS on lib folder -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- When server environment has been established I'll use Style refresher. Note: Only CSS-files included before the CSSrefresh-file will be refreshed.-->
+    <script type="text/javascript" src="js/cssrefresh.js"></script>
+    <!-- For HUMANS-->
+    <link type="text/plain" rel="author" href="http://UStep/humans.txt" />
+    <!-- Particle on canvas-->
+    <script type="text/javascript" src="js/canvas.js"></script>
+
+</head>
+
+<body>
+    <!-- CABECERA -->
+    <nav class="cabecera">
+
+        <!-- SECCIONES CABECERA-->
+        <div class="secciones">
+            <ul class="lista-secciones">
+                <!-- LOGO CABECERA-->
+                <li><a class="loguito" href="#">u step</a>
+                </li>
+                <li><a href="#">Foro</a>
+                </li>
+                <li><a href="#">Archivo</a>
+                </li>
+                <li><a href="#">Eventos</a>
+                </li>
+                <li><a href="#">Blog</a>
+                </li>
+
+                <!-- AYUDA DJ'S-->
+                <li><a class="icono-ayuda-dj" href="dj.html"> Guía DJ's</a>
+                </li>
+
+                <!-- REGISTRO Y LOGIN-->
+                <li class="saludo"><a href="login.html">Bienvenido, <span class="saludo-usuario">Dj User</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- BUSCADOR -->
+        <div>
+            <form>
+                <input type="text" class="buscador" />
+                <a href="">
+                    <div class="icono-buscador"></div>
+                </a>
+            </form>
+        </div>
+
+        <!-- ICONO CONTROL USUARIO-->
+        <div>
+            <a href="">
+                <img src="img/iconocontrolusuario.png" alt="icono-control-usuario">
+            </a>
+        </div>
+
+        <!-- Despligue control usuario -->
+        <ul class="menu-usuario">
+            <li class="premium">
+                <a href="">Premium</a>
+            </li>
+            <li class="user-name">
+                <a href=""> <img alt="imagen-usuario" src="img/imagen-usuario.png">Dj User</a>
+            </li>
+            <li class="mensajes">
+                <a href="#">7</a>
+            </li>
+            <li class="alertas">
+                <a href="#">4</a>
+            </li>
+            <li class="separador-usuario">
+                <a class="icono-usuario-menu" href=""> <img alt="icono1" src="img/icono1.png"><span>Iniciar Stream</span>
+                </a>
+            </li>
+            <li>
+                <a class="icono-usuario-menu" href=""> <img alt="icono2" src="img/icono2.png"><span>Fans</span>
+                </a>
+            </li>
+            <li>
+                <a class="icono-usuario-menu" href=""> <img alt="icono3" src="img/icono3.png"><span>Mis sesiones</span>
+                </a>
+            </li>
+            <li>
+                <a class="icono-usuario-menu" href=""> <img alt="icono4" src="img/icono4.png"><span>Mi perfil</span>
+                </a>
+            </li>
+            <li class="mas-opciones">
+                <a href=""> Más...</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- CUERPO -->
+    <main class="separador-cuerpo">
+
+        <!-- LOGO GRANDE -->
+        <figure>
+            <img class="logo-grande" alt="logoUStepGrande" src="img/logogrande.png" />
+            <img class="letraslogo" alt="logoUStepGrande" src="img/letraslogo.png" />
+        </figure>
+
+        <!-- REPRODUCTOR -->
+        <section id="reproductor">
+            <div id="controlesVideo">
+                <img src="img/Controles_multimedia.png"/>
+                <div id="pause" onclick="vidpause()" alt="Pausa">
+                </div>
+                <div id="play" onclick="vidplay()" alt="Reproducir">
+                </div>
+                <div id="volumeUp" onclick="volup()" alt="Subir Volumen">
+                </div>
+                <div id="volumeDown" onclick="voldown()" alt="Bajar Volumen">
+                </div>
+            </div>
+            <video id="medio">
+                <source src="../video/Alaskan_Huskies.mpeg" type="video/mpeg">
+                <source src="../video/Alaskan_Huskies.ogv" type="video/ogv">
+                <source src="../video/Alaskan_Huskies.webm" type="video/webm">
+            </video>
+            <div id="stageDj">
+                <img src="img/djstage.png"/>
+            </div>
+            <div id="mono"></div>
+        </section>
+        <canvas id="micanvas"></canvas>
+
+
+        <!--PRESENTAMOS SECTION-->
+        <section class="presentamos">
+            <ul class="presentaciones">
+                <li class="presentacion">
+                    <a href="">
+                        <span class="categorias">Foro</span>
+                        <img alt="imgseccion1" class="imgpresentamos" src="img/nuestracomunidad.jpg" />
+                        <h3>Nuestra comunidad</h3>
+                    </a>
+                </li>
+                <li class="presentacion">
+                    <a href="">
+                        <span class="categorias">Eventos</span>
+                        <img alt="imgseccion2" class="imgpresentamos" src="img/madrid.jpg" />
+                        <h3>U Step en MADRID</h3>
+                    </a>
+                </li>
+                <li class="presentacion">
+                    <a href="">
+                        <span class="categorias">Eventos</span>
+                        <img alt="imgseccion3" class="imgpresentamos" src="img/santiago.jpg" />
+                        <h3>Próximo Step: SANTIAGO</h3>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!--DIRECTOS-->
+        <section class="directos">
+            <ul>
+                <li>
+                    <a href="">
+                        <h2>Mis DJ's</h2>
+                    </a>
+                </li>
+                <li class="flecha-arriba botones-movimiento">
+                    <div></div>
+                </li>
+                <li class="flecha-abajo botones-movimiento">
+                    <div></div>
+                </li>
+                <li>
+                    <a href="">
+                        <div>
+                            <img class="imagendj" alt="imagendj1" src="img/dj1.jpg">
+                        </div>
+
+                        <ul class="descripcion-directo">
+                            <li>Minimal</li>
+                            <li class="nombre-dj">Strobi-wan</li>
+                            <li>++ SESSION #76 ++</li>
+                            <li class="directo-a-punto">Puertas abiertas!<span class="usuarios participantes">3</span> </li>
+                        </ul>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div>
+                            <img class="imagendj" alt="imagendj1" src="img/dj2.jpg">
+                        </div>
+
+                        <ul class="descripcion-directo">
+                            <li>Dubstep</li>
+                            <li class="nombre-dj">DJM!CROL!N</li>
+                            <li>Día Leif Erison!Nu Nation...</li>
+                            <li> En 1 hora <span class="apuntados participantes">8</span>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div>
+                            <img class="imagendj" alt="imagendj1" src="img/dj9.jpg">
+                        </div>
+
+                        <ul class="descripcion-directo">
+                            <li>Dubstep</li>
+                            <li class="nombre-dj">Heretic</li>
+                            <li>Hot Steppah sessions</li>
+                            <li>En 2 horas <span class="apuntados participantes">11</span>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="">
+                        <div class="pagina-actual botones-movimiento"></div>
+                    </a>
+                    <a href="">
+                        <div class="pagina-siguiente botones-movimiento"></div>
+                    </a>
+                    <a href="">
+                        <div class="mostrar-todos">Ver Todos</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <h2>Directos</h2>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div>
+                            <img class="imagendj" alt="imagendj1" src="img/dj3.jpg">
+                        </div>
+
+                        <ul class="descripcion-directo">
+                            <li>Presenta: Club Beats</li>
+                            <li class="nombre-dj">DEJA-VU</li>
+                            <li>TGIF Trance con DEJA-VU!!</li>
+                            <li class="directo-empezado directo-popular">En directo! <span class="usuarios participantes">16</span>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="">
+                        <div>
+                            <img class="imagendj" alt="imagendj1" src="img/dj4.jpg">
+                        </div>
+
+                        <ul class="descripcion-directo">
+                            <li></li>
+                            <li class="nombre-dj">GeoShifter</li>
+                            <li>Fin de semana!</li>
+                            <li class="directo-empezado">Acaba de empezar! <span class="usuarios participantes">18</span>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div>
+                            <img class="imagendj" alt="imagendj1" src="img/dj5.jpg">
+                        </div>
+
+                        <ul class="descripcion-directo">
+                            <li></li>
+                            <li class="nombre-dj">Altroid ( 0o )</li>
+                            <li>altroiiiiiiiiiiiiii d d d d d</li>
+                            <li class="directo-a-punto con-video">Puertas abiertas!<span class="usuarios participantes">8</span> </li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="">
+                        <div>
+                            <img class="imagendj" alt="imagendj1" src="img/dj6.jpg">
+                        </div>
+
+                        <ul class="descripcion-directo">
+                            <li>House</li>
+                            <li class="nombre-dj">DJKimAntony</li>
+                            <li>Club sounds</li>
+                            <li class="directo-a-punto">Puertas abiertas!<span class="usuarios participantes">20</span> </li>
+                        </ul>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div>
+                            <img class="imagendj" alt="imagendj1" src="img/dj7.jpg">
+                        </div>
+
+                        <ul class="descripcion-directo">
+                            <li>Electro</li>
+                            <li class="nombre-dj">DJ Ransome</li>
+                            <li>In The Mix on DNBRADIO</li>
+                            <li class="directo-a-punto">Puertas abiertas!<span class="usuarios participantes">22</span> </li>
+                        </ul>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div>
+                            <img class="imagendj" alt="imagendj1" src="img/dj8.jpg">
+                        </div>
+
+                        <ul class="descripcion-directo">
+                            <li>Minimal</li>
+                            <li class="nombre-dj">ELTY</li>
+                            <li>ELTY LIVE BROADCAST</li>
+                            <li class="directo-a-punto con-video">Puertas abiertas!<span class="usuarios participantes">20</span> </li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!--RECOMENDAMOS-->
+    <section class="recomendamos">
+        <ul class="recomendaciones">
+
+            <li class="recomendacion">
+                <a href="">
+                    <span class="categorias categoria-recomendacion">Foro</span>
+                    <img class="img-recomendacion" src="img/ranking.jpg" alt="recom1" />
+                    <div>
+                        <h3>DJ's Ranking de la semana</h3>
+                    </div>
+                </a>
+            </li>
+
+            <li class="recomendacion">
+                <a href="">
+                    <span class="categorias categoria-recomendacion">Blog</span>
+                    <img class="img-recomendacion" src="img/sec2.jpg" alt="recom1" />
+                    <div>
+                        <h3>Hipnotizados por la música</h3>
+                    </div>
+                </a>
+            </li>
+            <li class="recomendacion">
+                <a href="">
+                    <span class="categorias categoria-recomendacion">Blog</span>
+                    <img class="img-recomendacion" src="img/sec3.jpg" alt="recom1" />
+                    <div>
+                        <h3>Culturas urbanas</h3>
+                    </div>
+                </a>
+            </li>
+            <li class="recomendacion">
+                <a href="">
+                    <span class="categorias categoria-recomendacion">Foro</span>
+                    <img class="img-recomendacion" src="img/sec4.jpg" alt="recom1" />
+                    <div>
+                        <h3>¿A qué suena...?</h3>
+                    </div>
+                </a>
+            </li>
+            <li class="recomendacion">
+                <a href="">
+                    <span class="categorias categoria-recomendacion">Blog</span>
+                    <img class="img-recomendacion" src="img/sec5.jpg" alt="recom1" />
+                    <div>
+                        <h3>Juegos con ritmo</h3>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <footer>
+        <!--WEBS AMIGAS SECTION-->
+        <section class="vistazo">
+            <h4>Échale un vistazo a...</h4>
+            <ul class="webs-amigas">
+                <li>
+                    <a href=""><img src="img/andrei.png" alt="recom1" />
+                    </a>
+                </li>
+                <li class="joao-largo">
+                    <a href=""><img src="img/joao.png" alt="recom1" />
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="img/alvaro.png" alt="recom1" />
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="img/javier.png" alt="recom1" />
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="img/javi.png" alt="recom1" />
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="img/kk.png" alt="recom1" />
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!--NAVEGACIÓN PIE -->
+        <div class="nav-pie">
+
+            <!--LOGO PIE Y REDES SOCIALES -->
+            <ul class="redes-sociales">
+                <li class="cont-logo"><a class="loguito-pie" href="#">u step</a>
+                </li>
+                <li>
+                    <a href="#"><img alt="facebookUStep" src="img/facebook-logo.png" />
+                        <p class="likes-faceshit"> 46K</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><img alt="TwitStep" src="img/twitter-logo.png" />
+                    </a>
+                </li>
+            </ul>
+
+            <!--SECCIONES NAVEGACIÓN PIE -->
+            <ul>
+                <li>Sobre nosotros</li>
+                <li><a href=""> Contacto</a>
+                </li>
+                <li><a href=""> Equipo</a>
+                </li>
+                <li><a href=""> Compañía</a>
+                </li>
+                <li><a href=""> Eventos</a>
+                </li>
+                <li><a href=""> Prensa</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>Recursos</li>
+                <li><a href=""> Blog</a>
+                </li>
+                <li><a href=""> Foro</a>
+                </li>
+                <li><a href=""> Archivo</a>
+                </li>
+                <li><a href=""> Mesa Virtual</a>
+                </li>
+                <li><a href=""> Broadcast</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>Servicios para DJ's</li>
+                <li class="premium-mini"><a href=""> Hazte Premium!</a>
+                </li>
+                <li><a href=""> Fans</a>
+                </li>
+                <li><a href=""> Clubcast</a>
+                </li>
+                <li><a href=""> Videos personalizados</a>
+                </li>
+                <li><a href=""> Avatares personalizados</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>Siguenos</li>
+                <li><a href=""> Facebook</a>
+                </li>
+                <li><a href=""> Twitter</a>
+                </li>
+                <li><a href=""> Instagram</a>
+                </li>
+                <li><a href=""> Youtube</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>Legal</li>
+                <li><a href=""> Condiciones de uso</a>
+                </li>
+                <li><a href=""> Derechos de uso</a>
+                </li>
+                <li><a href=""> Condiciones de venta</a>
+                </li>
+                <li><a href=""> Aviso legal</a>
+                </li>
+                <li><a href=""> Privacidad</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+<!-- Library JQUERY for Video Controls-->
+    <script type="text/javascript" src="js/videocontrols.js"></script>
+</body>
+
+</html>
