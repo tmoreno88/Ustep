@@ -8,7 +8,7 @@ DJ's categories and most visited.
 
 No restrictions to colaborate.
 
-UPGRADE 23/12/15
+UPDATE 23/12/15
 
 It's done, we have index inteface.
 
@@ -19,3 +19,9 @@ Furthermore, users must have their database space to register, simple login into
 Index view should be redesign to show general list of djs and users could find them searching.
 
 I'm learning now how to add this functionality with laravel.
+
+SECOND UPDATE 23/12/15
+
+In last commit, i've percived that regitered users some of them will be DJ's, so... we need create one more table that references the initial users table just for login an navigation.
+
+Just remember that DJs table is like products to show. 
