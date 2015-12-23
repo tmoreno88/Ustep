@@ -7,3 +7,15 @@ This web is in progress, soon i'm gonna uptdate it with interface view, only ind
 DJ's categories and most visited.
 
 No restrictions to colaborate.
+
+UPGRADE 23/12/15
+
+It's done, we have index inteface.
+
+Now, in order to explain the final purposes, we need to create a database which will contains our djs, and we must categorized them in music style and how many people had visited him (not real dates).
+
+Furthermore, users must have their database space to register, simple login into our web.
+
+Index view should be redesign to show general list of djs and users could find them searching.
+
+I'm learning now how to add this functionality with laravel.
