@@ -35,7 +35,7 @@ ul
     .loguito
       color #5ce7f1
       position relative
-      left 9px
+      left 7px
       &:first-letter
         color #0f0
   &.webs-amigas
@@ -52,8 +52,9 @@ figure
 body,.nav-pie ul li
   font-size 15px
 
-.secciones .lista-secciones li:first-child,.cont-logo
+.secciones .lista-secciones #logui,.cont-logo
   background url("../img/cascos-logo.png") no-repeat
+  background-position-y 4px
 
 .cabecera
   background rgba(0,0,0,0.6)
@@ -126,17 +127,46 @@ body,.nav-pie ul li
 
 .secciones
   .lista-secciones
-    li
+    #logui
+      height 40px
       &:first-child
-        width 92px
-        height 40px
-        background-size 50px 40px
-        font-size 1.5em
-        text-transform capitalize
-        font-weight 900
+        .loguito
+          width 92px
+          height 40px
+          background-size 50px 30px
+          font-size 1.5em
+          text-transform capitalize
+          font-weight 900
+          position relative
+          right 10px
+          text-shadow 0 0 10px #000,0 0 20px #000,0 0 30px #fff,0 0 40px #0ff,0 0 70px #0ff,0 0 80px #0ff,0 0 100px #5ce7f1,0 0 150px #5ce7f1
+    li
+      &hover, &:hover
         position relative
-        right 10px
+        z-index 599
+        cursor default
         text-shadow 0 0 10px #000,0 0 20px #000,0 0 30px #fff,0 0 40px #0ff,0 0 70px #0ff,0 0 80px #0ff,0 0 100px #5ce7f1,0 0 150px #5ce7f1
+    ul
+      visibility hidden
+      position absolute
+      top 100%
+      left -100%
+      z-index 598
+      width 100%
+      display block
+      li
+        float none
+      ul
+        top 0
+        left auto
+        right -99.5%
+    li
+      &:hover > ul
+        visibility visible
+    ul
+      bottom 0
+      margin-top 0
+
 
 form
   margin-top 5px
